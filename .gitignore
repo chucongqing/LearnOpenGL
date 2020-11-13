@@ -1,5 +1,6 @@
 # Prerequisites
 *.d
+/glfw-3.3.2/Builds/
 
 # Compiled Object files
 *.slo
@@ -25,6 +26,7 @@
 *.la
 *.a
 *.lib
+
 
 # Executables
 *.exe
