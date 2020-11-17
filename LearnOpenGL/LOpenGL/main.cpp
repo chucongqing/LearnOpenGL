@@ -15,6 +15,13 @@ void processInput(GLFWwindow* window) {
 	}
 }
 
+void QueryHardwareAbility()
+{
+	int nrAttributes;
+	glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &nrAttributes);
+	std::cout << "Maximun nr of vertex attributes supported: " << nrAttributes << std::endl;
+}
+
 void Render();
 void RenderInit();
 void Shaders();
@@ -61,17 +68,20 @@ int main() {
 
 const char* vertexShaderSource = "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
+"out vec3 mycolor;"
 "void main()\n"
 "{\n"
 "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+"  mycolor= gl_Position.xyz;\n"
 "}\0";
 
 
 const char* fragmentShaderSource = "#version 330 core\n"
 "out vec4 FragColor;\n"
+"in vec3 mycolor;\n"
 "void main()\n"
 "{\n"
-"   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+"   FragColor = vec4(mycolor, 1.0f);//vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
 "}\n\0";
 
 
@@ -168,7 +178,7 @@ void RenderInit() {
 	glBindVertexArray(0);
 
 	//是否要进行线框渲染
-	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 }
 void Render() {
 	glClearColor(0.5f, 0.3f, 0.3f, 1.0f);
