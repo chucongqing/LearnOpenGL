@@ -122,6 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,9 +149,14 @@
   <ItemGroup>
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Utils.cpp" />
     <ClCompile Include="Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="Shader.h" />
     <ClInclude Include="utils.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
